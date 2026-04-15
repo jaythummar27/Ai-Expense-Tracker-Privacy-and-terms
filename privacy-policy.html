@@ -3,254 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Expense AI: UPI & SMS Tracker</title>
+    <title>Privacy Policy — Expense AI: UPI & SMS Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy:   #0F1D3B;
+            --blue:   #1E3A8A;
+            --accent: #2563EB;
+            --sky:    #3B82F6;
+            --teal:   #0EA5E9;
+            --green:  #059669;
+            --red:    #DC2626;
+            --amber:  #D97706;
+            --ink:    #1E293B;
+            --body:   #334155;
+            --muted:  #64748B;
+            --border: #CBD5E1;
+            --surface:#F1F5F9;
+            --white:  #FFFFFF;
+            --card-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(30,58,138,.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #334155;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            background-color: #F8FAFC;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            color: var(--body);
+            background: #EEF2FF;
+            min-height: 100vh;
         }
-        .container {
-            background-color: #FFFFFF;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        .header {
+
+        /* ── Header ─────────────────────────────────── */
+        .site-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--sky) 100%);
+            color: #fff;
+            padding: 56px 24px 48px;
             text-align: center;
-            border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
-        h1 { color: #1E3A8A; margin-bottom: 10px; font-size: 2.2rem; }
-        h2 { color: #2563EB; margin-top: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; }
-        h3 { color: #3B82F6; margin-top: 25px; }
-        p, li { font-size: 1.05rem; margin-bottom: 12px; }
-        ul { margin-bottom: 20px; }
-        .date { color: #64748B; font-weight: 500; }
-        .table-responsive { overflow-x: auto; margin-top: 20px; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; white-space: nowrap; }
-        th, td { border: 1px solid #CBD5E1; padding: 12px 15px; text-align: left; }
-        th { background-color: #F1F5F9; font-weight: 600; color: #1E293B; }
-        a { color: #2563EB; text-decoration: none; }
+        .site-header::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 70% 30%, rgba(59,130,246,.25) 0%, transparent 60%),
+                        radial-gradient(ellipse at 20% 80%, rgba(14,165,233,.18) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .header-icon {
+            font-size: 52px;
+            display: block;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,.25));
+        }
+        .site-header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 400;
+            letter-spacing: -.5px;
+            margin-bottom: 6px;
+        }
+        .site-header .doc-type {
+            font-size: .9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: .75;
+            margin-bottom: 20px;
+        }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        .badge {
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: .78rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ── Layout ─────────────────────────────────── */
+        .page-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ── Nav strip ──────────────────────────────── */
+        .toc-strip {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: var(--card-shadow);
+            padding: 20px 24px;
+            margin: -28px 0 32px;
+            position: relative;
+            z-index: 2;
+        }
+        .toc-strip p {
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .toc-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .toc-links a {
+            font-size: .82rem;
+            color: var(--accent);
+            text-decoration: none;
+            background: var(--surface);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-weight: 500;
+            transition: background .15s, color .15s;
+        }
+        .toc-links a:hover { background: var(--accent); color: #fff; }
+
+        /* ── Section Cards ──────────────────────────── */
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            padding: 32px;
+            margin-bottom: 24px;
+            scroll-margin-top: 24px;
+        }
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1.5px solid var(--surface);
+        }
+        .section-icon {
+            width: 42px; height: 42px;
+            border-radius: 11px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .icon-blue   { background: #DBEAFE; }
+        .icon-green  { background: #D1FAE5; }
+        .icon-red    { background: #FEE2E2; }
+        .icon-amber  { background: #FEF3C7; }
+        .icon-purple { background: #EDE9FE; }
+        .icon-teal   { background: #CFFAFE; }
+        .icon-slate  { background: #F1F5F9; }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -.3px;
+        }
+        .section-num {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        p { line-height: 1.75; margin-bottom: 14px; font-size: .97rem; }
+        p:last-child { margin-bottom: 0; }
+
+        ul, ol { padding-left: 20px; margin-bottom: 14px; }
+        li { line-height: 1.75; font-size: .97rem; margin-bottom: 4px; }
+
+        strong { font-weight: 600; color: var(--ink); }
+        code {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: var(--surface);
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-size: .85em;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+        a { color: var(--accent); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
+        /* ── Callout boxes ──────────────────────────── */
+        .callout {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: .93rem;
+            line-height: 1.65;
+        }
+        .callout-blue   { background: #EFF6FF; border-left: 3px solid var(--accent); color: #1E40AF; }
+        .callout-green  { background: #ECFDF5; border-left: 3px solid var(--green);  color: #065F46; }
+        .callout-red    { background: #FFF1F2; border-left: 3px solid var(--red);    color: #9B1C1C; }
+        .callout-amber  { background: #FFFBEB; border-left: 3px solid var(--amber);  color: #92400E; }
+
+        /* ── Tables ─────────────────────────────────── */
+        .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 520px; }
+        thead tr { background: var(--surface); }
+        th {
+            text-align: left;
+            padding: 11px 14px;
+            font-weight: 600;
+            color: var(--ink);
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            border-bottom: 1px solid var(--border);
+        }
+        td { padding: 10px 14px; border-bottom: 1px solid var(--surface); vertical-align: top; line-height: 1.6; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #FAFBFF; }
+        .tick { color: var(--green); font-weight: 700; }
+        .cross { color: var(--red); font-weight: 700; }
+
+        /* ── Pill list ──────────────────────────────── */
+        .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+        .pill {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--ink);
+        }
+        .pill-green { background: #D1FAE5; border-color: #6EE7B7; color: #065F46; }
+        .pill-red   { background: #FEE2E2; border-color: #FCA5A5; color: #991B1B; }
+        .pill-blue  { background: #DBEAFE; border-color: #93C5FD; color: #1D4ED8; }
+
+        /* ── Divider ────────────────────────────────── */
+        .divider { height: 1px; background: var(--surface); margin: 20px 0; }
+
+        /* ── Ad section special styling ─────────────── */
+        .ad-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .ad-type-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+        }
+        .ad-type-card strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: .9rem; }
+        .ad-type-card span { font-size: .83rem; color: var(--muted); line-height: 1.5; }
+
+        /* ── Footer ─────────────────────────────────── */
+        .footer {
+            background: var(--navy);
+            color: rgba(255,255,255,.65);
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .85rem;
+            line-height: 1.8;
+        }
+        .footer a { color: rgba(255,255,255,.85); }
+        .footer strong { color: #fff; }
+
         @media (max-width: 600px) {
-            .container { padding: 20px; }
-            h1 { font-size: 1.8rem; }
+            .section { padding: 20px 18px; }
+            .site-header { padding: 40px 20px 36px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>Expense AI: UPI & SMS Tracker</h1>
-        <h2>Privacy Policy</h2>
-        <p class="date"><strong>Last Updated:</strong> March 28, 2026<br>
-        <strong>Effective Date:</strong> March 28, 2026</p>
+<!-- ── Header ─────────────────────────────────────────────────── -->
+<header class="site-header">
+    <span class="header-icon">💰</span>
+    <h1>Expense AI: UPI &amp; SMS Tracker</h1>
+    <div class="doc-type">Privacy Policy</div>
+    <div class="badge-row">
+        <span class="badge">📅 Last Updated: April 11, 2026</span>
+        <span class="badge">📋 Effective: April 11, 2026</span>
+        <span class="badge">🌐 GDPR-Aware</span>
+        <span class="badge">✅ Google Play Compliant</span>
+        <span class="badge">📱 AdMob Compliant</span>
+    </div>
+</header>
+
+<div class="page-wrap">
+
+    <!-- ── TOC ──────────────────────────────────────────────────── -->
+    <div class="toc-strip">
+        <p>Quick Navigation</p>
+        <div class="toc-links">
+            <a href="#intro">Introduction</a>
+            <a href="#collect">Data We Collect</a>
+            <a href="#sms">SMS Permission</a>
+            <a href="#camera">Camera &amp; OCR</a>
+            <a href="#ads">Advertising (AdMob)</a>
+            <a href="#analytics">Analytics</a>
+            <a href="#ai">AI &amp; Drive</a>
+            <a href="#thirdparty">Third-Party SDKs</a>
+            <a href="#storage">Storage &amp; Security</a>
+            <a href="#rights">Your Rights</a>
+            <a href="#permissions">Permissions</a>
+            <a href="#children">Children</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
 
-    <h3>1. Introduction</h3>
-    <p>Welcome to <strong>Expense AI: UPI & SMS Tracker</strong> ("the App"), developed by <strong>LogicGridApps</strong> ("we," "us," or "our"). This Privacy Policy explains how we collect, use, process, and protect your personal information when you use our application.</p>
-    <p>By downloading and using the App, you agree to the terms described in this Privacy Policy.</p>
-
-    <h3>2. Information We Collect</h3>
-    
-    <h4>2.1 SMS / Text Messages</h4>
-    <p>The App requests the <code>READ_SMS</code> and <code>RECEIVE_SMS</code> permissions <strong>solely and exclusively</strong> for the following purposes:</p>
-    <ul>
-        <li>To automatically detect bank transaction alerts from Indian financial institutions.</li>
-        <li>To parse debit/credit transaction amounts, merchant names, and dates from bank SMS notifications.</li>
-        <li>To eliminate the need for manual expense entry.</li>
-    </ul>
-    <p><strong>What we read:</strong> Only messages from known bank sender IDs (e.g., VM-HDFCBK, AD-SBIBNK, JD-ICICIB) that contain keywords like "debited," "credited," "Rs.," "UPI."</p>
-    <p><strong>What we NEVER read:</strong></p>
-    <ul>
-        <li>Personal conversations with friends, family, or contacts</li>
-        <li>OTP (One-Time Password) messages</li>
-        <li>Social media notifications</li>
-        <li>Promotional messages</li>
-        <li>Any message not related to a financial transaction</li>
-    </ul>
-
-    <h4>2.2 Camera</h4>
-    <p>The App requests <code>CAMERA</code> permission <strong>solely</strong> to:</p>
-    <ul>
-        <li>Allow users to capture photos of physical receipts</li>
-        <li>Extract transaction amounts and merchant names from receipt images using Google ML Kit OCR technology</li>
-        <li>Auto-fill the expense entry form with extracted data</li>
-    </ul>
-    <p>All image processing is performed <strong>entirely on-device</strong>. Captured images are <strong>never stored</strong> to disk, never uploaded to any server, and are immediately discarded after OCR processing is complete.</p>
-
-    <h4>2.3 Internet Access</h4>
-    <p>The App uses <code>INTERNET</code> permission for:</p>
-    <ul>
-        <li><strong>Gemini AI:</strong> Sending anonymized, aggregated spending summaries (no transaction IDs, no personal identifiers) to Google's Gemini API to generate personalized saving tips. You can use the App without enabling the AI Coach feature.</li>
-        <li><strong>Google Drive Backup:</strong> Uploading an encrypted backup file of your transaction data to your personal Google Drive account (using the private <code>DRIVE_APPDATA</code> scope — not visible to other apps or Drive file lists). This is <strong>optional</strong> and only occurs when you explicitly tap "Backup to Drive."</li>
-        <li><strong>No other data is transmitted.</strong></li>
-    </ul>
-
-    <h4>2.4 Data You Provide Manually</h4>
-    <p>When you manually add transactions, we store:</p>
-    <ul>
-        <li>Transaction title, amount, type (income/expense), category, account name, date, and optional notes</li>
-        <li>Budget limits you set per category</li>
-    </ul>
-    <p>This data is stored locally on your device in an SQLite database managed by Android Room.</p>
-
-    <h3>3. How We Use Your Information</h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Data Type</th>
-                    <th>Purpose</th>
-                    <th>Stored Where</th>
-                    <th>Sent to Server?</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>SMS content</td>
-                    <td>Parse bank transactions</td>
-                    <td>Device only (Room DB)</td>
-                    <td>❌ Never</td>
-                </tr>
-                <tr>
-                    <td>Camera images</td>
-                    <td>Receipt OCR scanning</td>
-                    <td>Never stored</td>
-                    <td>❌ Never</td>
-                </tr>
-                <tr>
-                    <td>Transaction data</td>
-                    <td>App functionality, charts, reports</td>
-                    <td>Device + optional Drive backup</td>
-                    <td>❌ Never</td>
-                </tr>
-                <tr>
-                    <td>Spending summaries</td>
-                    <td>AI saving tips (Gemini)</td>
-                    <td>Not stored by us</td>
-                    <td>✅ Anonymized to Google Gemini only</td>
-                </tr>
-                <tr>
-                    <td>Drive backup file</td>
-                    <td>Multi-device sync & backup</td>
-                    <td>Your personal Google Drive</td>
-                    <td>✅ Your Drive only</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- ── 1. Introduction ───────────────────────────────────────── -->
+    <div class="section" id="intro">
+        <div class="section-head">
+            <div class="section-icon icon-blue">📖</div>
+            <div><h2>Introduction</h2><div class="section-num">Section 01</div></div>
+        </div>
+        <p>Welcome to <strong>Expense AI: UPI &amp; SMS Tracker</strong> (the "App"), developed and operated by <strong>LogicGridApps</strong> ("we," "us," "our"), located in Gujarat, India. The App is a personal finance management tool for Android devices.</p>
+        <p>This Privacy Policy describes what information we collect, why we collect it, how we use it, and the choices you have. <strong>Please read it carefully before using the App.</strong></p>
+        <div class="callout callout-blue">
+            By downloading, installing, or using the App, you acknowledge that you have read and agree to this Privacy Policy. If you do not agree, please uninstall and do not use the App.
+        </div>
+        <p>This policy covers all features of the App including SMS-based expense detection, receipt OCR scanning, AI financial coaching, budgeting, Google Drive backup, and advertising served through Google AdMob and the Facebook Audience Network.</p>
     </div>
 
-    <h3>4. Data Storage and Security</h3>
-    <ul>
-        <li><strong>Local Storage:</strong> All transaction and budget data is stored in an encrypted SQLite database on your device using Android Room.</li>
-        <li><strong>Google Drive:</strong> If you opt-in to backup, data is stored in your personal Google Drive's private <code>AppData</code> folder (inaccessible to other apps or people).</li>
-        <li><strong>No Our Servers:</strong> LogicGridApps does <strong>not</strong> operate any backend servers that store your personal or financial data.</li>
-        <li><strong>Encryption:</strong> Android's built-in file system encryption protects all locally stored data.</li>
-    </ul>
+    <!-- ── 2. Data We Collect ─────────────────────────────────────── -->
+    <div class="section" id="collect">
+        <div class="section-head">
+            <div class="section-icon icon-teal">📊</div>
+            <div><h2>Information We Collect</h2><div class="section-num">Section 02</div></div>
+        </div>
+        <p>We collect information in three ways: data you provide manually, data generated automatically from your device, and data collected by third-party SDKs we integrate (detailed in Section 8).</p>
 
-    <h3>5. Third-Party Services</h3>
-    <p>The App integrates with the following third-party services:</p>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Service</th>
-                    <th>Provider</th>
-                    <th>Purpose</th>
-                    <th>Privacy Policy</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Gemini API</td>
-                    <td>Google LLC</td>
-                    <td>AI-powered spending analysis</td>
-                    <td><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></td>
-                </tr>
-                <tr>
-                    <td>Google Drive API</td>
-                    <td>Google LLC</td>
-                    <td>Optional backup/restore</td>
-                    <td><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></td>
-                </tr>
-                <tr>
-                    <td>Google ML Kit</td>
-                    <td>Google LLC</td>
-                    <td>On-device OCR (camera)</td>
-                    <td><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></td>
-                </tr>
-                <tr>
-                    <td>TensorFlow Lite</td>
-                    <td>Google LLC</td>
-                    <td>On-device ML categorization</td>
-                    <td><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <p>All ML Kit and TensorFlow Lite operations run <strong>entirely on-device</strong> and do not transmit any data to Google.</p>
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">2.1 Data You Provide</h3>
+        <ul>
+            <li>Transaction records: title, amount, type (income/expense), category, account name, date, and optional notes</li>
+            <li>Monthly budget limits per spending category</li>
+            <li>Opening balance and manual balance adjustments</li>
+        </ul>
+        <p>All of this data is stored <strong>exclusively on your device</strong> using Android Room (SQLite). We do not transmit or store it on our servers.</p>
 
-    <h3>6. Data Retention and Deletion</h3>
-    <ul>
-        <li><strong>Local data</strong> is retained until you uninstall the App or use "Delete All Data" in Settings.</li>
-        <li><strong>Drive backup</strong> data can be deleted at any time from your Google Drive → App Data settings.</li>
-        <li>We <strong>do not retain</strong> any of your data on our servers because we do not operate any servers.</li>
-    </ul>
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">2.2 Automatically Collected Data</h3>
+        <p>The following are collected automatically when you use certain features:</p>
+        <ul>
+            <li><strong>SMS messages</strong> (if permission granted): parsed locally for bank transaction detection — see Section 3</li>
+            <li><strong>Camera images</strong> (if permission granted): processed in-memory for OCR receipt scanning — see Section 4</li>
+            <li><strong>Advertising identifiers</strong>: collected by Google AdMob and Facebook Audience Network — see Section 5</li>
+            <li><strong>App usage events</strong>: screen views and feature interactions collected by Firebase Analytics — see Section 6</li>
+            <li><strong>Device information</strong>: device model, OS version, language, time zone — collected by Firebase and AdMob SDKs for analytics and ad targeting</li>
+            <li><strong>Crash reports</strong>: collected automatically by Firebase Crashlytics if crashes occur</li>
+        </ul>
 
-    <h3>7. Children's Privacy</h3>
-    <p>The App is not directed at children under 13 years of age. We do not knowingly collect personal information from children. If you are a parent and believe your child has provided personal information, please contact us to have it removed.</p>
-
-    <h3>8. Your Rights</h3>
-    <p>You have the right to:</p>
-    <ul>
-        <li><strong>Access</strong> all your data (it's stored locally on your device)</li>
-        <li><strong>Delete</strong> all data via Settings → Delete All Data</li>
-        <li><strong>Export</strong> your data via Settings → Export CSV</li>
-        <li><strong>Withdraw</strong> any permission at any time via Android Settings → App Permissions</li>
-        <li><strong>Disable SMS tracking</strong> at any time from the Settings screen without losing manually entered data</li>
-    </ul>
-
-    <h3>9. Permissions Summary</h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Permission</th>
-                    <th>Reason</th>
-                    <th>Optional?</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td><code>READ_SMS</code></td><td>Auto-detect bank transaction SMS</td><td>Yes — app works without it</td></tr>
-                <tr><td><code>RECEIVE_SMS</code></td><td>Real-time SMS transaction detection</td><td>Yes — app works without it</td></tr>
-                <tr><td><code>CAMERA</code></td><td>Scan receipt photos via OCR</td><td>Yes — manual entry available</td></tr>
-                <tr><td><code>INTERNET</code></td><td>Gemini AI tips + optional Drive backup</td><td>Yes — AI Coach can be disabled</td></tr>
-                <tr><td><code>USE_BIOMETRIC</code></td><td>App lock via fingerprint/face ID</td><td>Yes — optional security feature</td></tr>
-                <tr><td><code>POST_NOTIFICATIONS</code></td><td>Budget overspending alerts</td><td>Yes</td></tr>
-                <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Check connectivity before API calls</td><td>Yes</td></tr>
-            </tbody>
-        </table>
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">2.3 Data NOT Collected by Us</h3>
+        <div class="callout callout-green">
+            <strong>LogicGridApps does not collect, store, or process on our own servers:</strong> your name, email, phone number, bank account numbers, IFSC codes, passwords, OTPs, personal conversations, or any identifiable financial credentials.
+        </div>
     </div>
 
-    <h3>10. Changes to This Policy</h3>
-    <p>We may update this Privacy Policy periodically. We will notify you of significant changes by updating the "Last Updated" date. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+    <!-- ── 3. SMS ─────────────────────────────────────────────────── -->
+    <div class="section" id="sms">
+        <div class="section-head">
+            <div class="section-icon icon-amber">💬</div>
+            <div><h2>SMS Permission &amp; Usage</h2><div class="section-num">Section 03</div></div>
+        </div>
 
-    <h3>11. Contact Us</h3>
-    <p>For privacy concerns, data deletion requests, or questions:</p>
-    <ul>
-        <li><strong>Email:</strong> <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a></li>
-        <li><strong>Developer:</strong> Mukesh Thummar</li>
-        <li><strong>App:</strong> Expense AI: UPI & SMS Tracker</li>
-    </ul>
+        <div class="callout callout-amber">
+            <strong>Google Play Sensitive Permission:</strong> This App requests <code>READ_SMS</code> and <code>RECEIVE_SMS</code> — classified as sensitive permissions under Google Play policy. The following disclosure is provided in full transparency and compliance with that policy.
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Why We Request SMS Access</h3>
+        <p>The sole purpose of SMS permission is to automatically detect bank transaction alerts from Indian financial institutions, eliminating the need for manual data entry. A prominent disclosure dialog is shown to you <strong>before</strong> the Android system permission prompt is ever displayed.</p>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">What We Read</h3>
+        <div class="pill-list">
+            <span class="pill pill-green">Bank debit/credit alerts</span>
+            <span class="pill pill-green">UPI payment confirmations</span>
+            <span class="pill pill-green">Messages from known bank sender IDs (VM-HDFCBK, AD-SBIBNK, JD-ICICIB, etc.)</span>
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">What We NEVER Read</h3>
+        <div class="pill-list">
+            <span class="pill pill-red">Personal conversations</span>
+            <span class="pill pill-red">OTP messages</span>
+            <span class="pill pill-red">Social media notifications</span>
+            <span class="pill pill-red">Promotional messages</span>
+            <span class="pill pill-red">Any non-financial message</span>
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">How SMS Data is Processed</h3>
+        <ul>
+            <li>All SMS parsing is performed <strong>100% on-device</strong> using local pattern matching and TensorFlow Lite (LiteRT) ML models</li>
+            <li>Only the extracted data (transaction amount, date, merchant name) is saved to the local Room database</li>
+            <li>Raw SMS message content is <strong>never stored</strong> to disk and <strong>never transmitted</strong> to any server</li>
+        </ul>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">This Permission is Optional</h3>
+        <p>SMS tracking is entirely optional. You can use all other features of the App (manual entry, reports, AI Coach, budgeting) without ever granting SMS access. You can revoke this permission at any time from Android Settings → Apps → Expense AI → Permissions.</p>
+    </div>
+
+    <!-- ── 4. Camera ──────────────────────────────────────────────── -->
+    <div class="section" id="camera">
+        <div class="section-head">
+            <div class="section-icon icon-purple">📷</div>
+            <div><h2>Camera &amp; OCR Receipt Scanning</h2><div class="section-num">Section 04</div></div>
+        </div>
+        <p>The App requests <code>CAMERA</code> permission solely to allow you to photograph physical receipts and auto-fill the expense entry form using Google ML Kit OCR technology.</p>
+
+        <div class="callout callout-green">
+            <strong>Key privacy facts about Camera usage:</strong><br>
+            • All image processing is performed <strong>entirely on-device</strong> using Google ML Kit (bundled offline model)<br>
+            • Captured images are processed in memory only and are <strong>never written to disk</strong><br>
+            • Images are <strong>never uploaded</strong> to our servers or any third-party server<br>
+            • Images are immediately discarded after OCR processing is complete
+        </div>
+        <p>You may also use the gallery import option to select an existing receipt image from your device. The same on-device-only processing rules apply.</p>
+        <p>Camera access is optional. Manual transaction entry is always available as an alternative.</p>
+    </div>
+
+    <!-- ── 5. Ads ──────────────────────────────────────────────────── -->
+    <div class="section" id="ads">
+        <div class="section-head">
+            <div class="section-icon icon-amber">📢</div>
+            <div><h2>Advertising — Google AdMob</h2><div class="section-num">Section 05</div></div>
+        </div>
+
+        <div class="callout callout-amber">
+            <strong>AdMob Disclosure:</strong> This App uses Google AdMob to display advertisements. AdMob may collect and use data from your device to serve personalized or non-personalized ads. This section explains how advertising works in the App.
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Ad Formats Used</h3>
+        <div class="ad-types">
+            <div class="ad-type-card">
+                <strong>⚡ Interstitial Ads</strong>
+                <span>Full-screen ads shown at natural transition points (e.g., after saving a transaction or switching to Passbook view). Frequency is throttled via Firebase Remote Config to limit disruption.</span>
+            </div>
+            <div class="ad-type-card">
+                <strong>🎬 Rewarded Video Ads</strong>
+                <span>Opt-in video ads that users voluntarily watch to earn AI credits or unlock Export/Import features. Watching is never mandatory.</span>
+            </div>
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Data Collected by AdMob</h3>
+        <p>Google AdMob independently collects the following data for ad serving and measurement purposes:</p>
+        <ul>
+            <li>Advertising identifier (Google Advertising ID / GAID)</li>
+            <li>Device information (model, OS version, screen size, language)</li>
+            <li>IP address (used to infer approximate geographic location)</li>
+            <li>App interaction signals (ad impressions, clicks)</li>
+            <li>Coarse location (if device grants location permission to the OS)</li>
+        </ul>
+        <p>This data is collected and processed by Google LLC under their own privacy policy. LogicGridApps does not have access to or control over AdMob's data collection.</p>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Ad Personalization</h3>
+        <p>By default, AdMob may serve <strong>personalized ads</strong> based on your interests and prior app activity. You can opt out of personalized ads at any time:</p>
+        <ul>
+            <li>On your Android device: <strong>Settings → Google → Ads → Opt out of Ads Personalization</strong></li>
+            <li>Or reset your Advertising ID: <strong>Settings → Google → Ads → Reset Advertising ID</strong></li>
+            <li>For EU/EEA users: The App implements Google's User Messaging Platform (UMP) for consent management where required by law</li>
+        </ul>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Ad Throttling &amp; User Experience</h3>
+        <p>We use Firebase Remote Config to control ad frequency (minimum interval between ads, maximum per session, honeymoon period for new users). Ads are never shown during sensitive actions such as entering financial data.</p>
+
+        <div class="divider"></div>
+        <p>For Google's data practices related to advertising, see: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy FAQ</a>.</p>
+    </div>
+
+    <!-- ── 6. Analytics ───────────────────────────────────────────── -->
+    <div class="section" id="analytics">
+        <div class="section-head">
+            <div class="section-icon icon-blue">📈</div>
+            <div><h2>Analytics &amp; Remote Configuration</h2><div class="section-num">Section 06</div></div>
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Firebase Analytics</h3>
+        <p>We use <strong>Google Firebase Analytics</strong> to understand how users interact with the App. This helps us improve features and fix issues. Firebase Analytics automatically collects:</p>
+        <ul>
+            <li>Screen views and navigation events</li>
+            <li>App open/close and session duration</li>
+            <li>Device type, OS version, app version, language</li>
+            <li>Crash and error reports (Firebase Crashlytics)</li>
+        </ul>
+        <p><strong>No personally identifiable financial data</strong> (transaction amounts, bank names, SMS content) is ever sent to Firebase Analytics.</p>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Firebase Remote Config</h3>
+        <p>We use Firebase Remote Config to dynamically control app behavior without requiring an update — including ad frequency limits, feature flags (enabling/disabling AI Coach, OCR Scanner, SMS Tracking, Passbook, etc.), and AI credit economy settings. No personal data is transmitted to Remote Config.</p>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Facebook / Meta SDK</h3>
+        <p>The App integrates the <strong>Facebook Android SDK</strong> for analytics and app event measurement. The Facebook SDK may collect:</p>
+        <ul>
+            <li>App install and launch events</li>
+            <li>Advertising identifier (for ad measurement)</li>
+            <li>Device information (OS version, language, time zone)</li>
+        </ul>
+        <p>Facebook/Meta's data collection is governed by Meta's <a href="https://www.facebook.com/privacy/policy/" target="_blank">Privacy Policy</a>. You can manage Meta's ad preferences at <a href="https://www.facebook.com/ads/preferences" target="_blank">facebook.com/ads/preferences</a>.</p>
+    </div>
+
+    <!-- ── 7. AI & Drive ──────────────────────────────────────────── -->
+    <div class="section" id="ai">
+        <div class="section-head">
+            <div class="section-icon icon-green">🤖</div>
+            <div><h2>AI Coach &amp; Google Drive Backup</h2><div class="section-num">Section 07</div></div>
+        </div>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">AI Financial Coach (Groq AI)</h3>
+        <p>The AI Coach feature uses the <strong>Groq AI API</strong> to generate personalized saving tips and answer financial questions. When you use the AI Coach:</p>
+        <ul>
+            <li>Anonymized, aggregated spending summaries are sent to Groq's API (e.g., "spent ₹X on Food this month")</li>
+            <li><strong>No personally identifiable information</strong> (name, phone, bank account numbers, transaction IDs) is included in API requests</li>
+            <li>API requests are made over HTTPS (TLS-encrypted)</li>
+            <li>Groq's data handling is governed by <a href="https://groq.com/privacy-policy/" target="_blank">Groq's Privacy Policy</a></li>
+        </ul>
+        <p>The AI Coach feature requires an internet connection and AI credits. It can be disabled entirely in Settings, in which case no data is sent to Groq.</p>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Google Drive Backup (Optional)</h3>
+        <p>You may optionally back up your transaction data to your personal Google Drive account.</p>
+        <ul>
+            <li>Backup uses the private <code>DRIVE_APPDATA</code> scope — the backup file is only visible to this App, not to other apps, not in your Drive file list, and not visible to anyone else (including LogicGridApps)</li>
+            <li>The backup file contains only your local transaction and budget data in CSV format</li>
+            <li>Backup is <strong>opt-in only</strong> and only occurs when you explicitly tap "Backup to Drive"</li>
+            <li>You can delete the backup at any time from Google Drive → Settings → Manage Apps → Expense AI → Delete Data</li>
+        </ul>
+        <p>Google Drive usage is governed by Google's <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>.</p>
+
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">On-Device ML (TensorFlow Lite / LiteRT)</h3>
+        <p>The App uses Google's TensorFlow Lite (LiteRT) for on-device SMS transaction categorization. All ML inference runs <strong>entirely on your device</strong> — no data is sent to Google for this purpose.</p>
+    </div>
+
+    <!-- ── 8. Third-Party SDKs ─────────────────────────────────────── -->
+    <div class="section" id="thirdparty">
+        <div class="section-head">
+            <div class="section-icon icon-slate">🔗</div>
+            <div><h2>Third-Party SDKs &amp; Services</h2><div class="section-num">Section 08</div></div>
+        </div>
+        <p>The App integrates the following third-party SDKs and services. Each operates under its own privacy policy and data practices.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SDK / Service</th>
+                        <th>Provider</th>
+                        <th>Purpose</th>
+                        <th>Data Sent?</th>
+                        <th>Privacy Policy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google AdMob</strong></td>
+                        <td>Google LLC</td>
+                        <td>Interstitial &amp; rewarded ads</td>
+                        <td><span class="tick">✔ Advertising ID, device info</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Analytics</strong></td>
+                        <td>Google LLC</td>
+                        <td>App usage analytics</td>
+                        <td><span class="tick">✔ App events, device info</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Remote Config</strong></td>
+                        <td>Google LLC</td>
+                        <td>Feature flags &amp; ad throttling</td>
+                        <td><span class="tick">✔ Anonymous config fetch</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook SDK</strong></td>
+                        <td>Meta Platforms</td>
+                        <td>App event analytics</td>
+                        <td><span class="tick">✔ App events, Advertising ID</span></td>
+                        <td><a href="https://www.facebook.com/privacy/policy/" target="_blank">Meta</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google ML Kit OCR</strong></td>
+                        <td>Google LLC</td>
+                        <td>Receipt text recognition</td>
+                        <td><span class="cross">✘ On-device only</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TensorFlow Lite (LiteRT)</strong></td>
+                        <td>Google LLC</td>
+                        <td>SMS transaction categorization</td>
+                        <td><span class="cross">✘ On-device only</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Groq AI API</strong></td>
+                        <td>Groq, Inc.</td>
+                        <td>AI financial coach responses</td>
+                        <td><span class="tick">✔ Anonymized spending summaries</span></td>
+                        <td><a href="https://groq.com/privacy-policy/" target="_blank">Groq</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Drive API</strong></td>
+                        <td>Google LLC</td>
+                        <td>Optional data backup</td>
+                        <td><span class="tick">✔ Your Drive (opt-in only)</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Play In-App Review</strong></td>
+                        <td>Google LLC</td>
+                        <td>In-app review prompt</td>
+                        <td><span class="tick">✔ Review metadata to Google</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Play Services Auth</strong></td>
+                        <td>Google LLC</td>
+                        <td>Google account sign-in for Drive</td>
+                        <td><span class="tick">✔ Google account token only</span></td>
+                        <td><a href="https://policies.google.com/privacy" target="_blank">Google</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>AndroidX Biometric</strong></td>
+                        <td>Google / Android</td>
+                        <td>App lock (fingerprint/face)</td>
+                        <td><span class="cross">✘ On-device only</span></td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ── 9. Storage & Security ──────────────────────────────────── -->
+    <div class="section" id="storage">
+        <div class="section-head">
+            <div class="section-icon icon-green">🔒</div>
+            <div><h2>Data Storage &amp; Security</h2><div class="section-num">Section 09</div></div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Data Type</th><th>Where Stored</th><th>Sent to Our Servers?</th><th>Retention</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Transaction &amp; budget data</td><td>Device (Room/SQLite)</td><td><span class="cross">✘ Never</span></td><td>Until deleted by user or app uninstalled</td></tr>
+                    <tr><td>SMS messages</td><td>Processed in-memory only</td><td><span class="cross">✘ Never</span></td><td>Not retained — discarded after parsing</td></tr>
+                    <tr><td>Camera images</td><td>Processed in-memory only</td><td><span class="cross">✘ Never</span></td><td>Not retained — discarded after OCR</td></tr>
+                    <tr><td>AI chat history</td><td>Device memory only</td><td><span class="cross">✘ Never</span></td><td>Cleared when you clear the chat</td></tr>
+                    <tr><td>Drive backup file</td><td>Your personal Google Drive</td><td><span class="cross">✘ Not our servers</span></td><td>Until you delete it from Drive</td></tr>
+                    <tr><td>Analytics events</td><td>Firebase servers (Google)</td><td><span class="tick">✔ To Google only</span></td><td>Per Google's retention policy (up to 14 months)</td></tr>
+                    <tr><td>Ad identifiers</td><td>AdMob / Meta servers</td><td><span class="tick">✔ To Google / Meta only</span></td><td>Per Google's and Meta's policies</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <h3 style="color:var(--accent);margin:18px 0 8px;font-size:1rem;">Our Security Measures</h3>
+        <ul>
+            <li>All local data is protected by Android's built-in file system encryption</li>
+            <li>All external API calls (Groq AI, Google Drive) use HTTPS/TLS encryption</li>
+            <li>LogicGridApps does <strong>not</strong> operate any backend servers that store your personal or financial data</li>
+            <li>The App supports optional biometric lock (fingerprint / PIN) to prevent unauthorized access</li>
+        </ul>
+    </div>
+
+    <!-- ── 10. Your Rights ─────────────────────────────────────────── -->
+    <div class="section" id="rights">
+        <div class="section-head">
+            <div class="section-icon icon-blue">⚖️</div>
+            <div><h2>Your Rights &amp; Controls</h2><div class="section-num">Section 10</div></div>
+        </div>
+        <p>You have full control over your data:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Right</th><th>How to Exercise It</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Access your data</strong></td><td>All your data is stored locally on your device — open the App to view it</td></tr>
+                    <tr><td><strong>Export your data</strong></td><td>Settings → Export CSV (all transactions exported to a file you own)</td></tr>
+                    <tr><td><strong>Delete all data</strong></td><td>Settings → Delete All Data (permanently wipes the local database)</td></tr>
+                    <tr><td><strong>Revoke SMS permission</strong></td><td>Android Settings → Apps → Expense AI → Permissions → SMS</td></tr>
+                    <tr><td><strong>Revoke Camera permission</strong></td><td>Android Settings → Apps → Expense AI → Permissions → Camera</td></tr>
+                    <tr><td><strong>Disable SMS tracking</strong></td><td>App Settings → SMS Tracking toggle (without losing existing data)</td></tr>
+                    <tr><td><strong>Opt out of ad personalization</strong></td><td>Android Settings → Google → Ads → Opt out of Ads Personalization</td></tr>
+                    <tr><td><strong>Delete Drive backup</strong></td><td>Google Drive → Settings → Manage Apps → Expense AI → Delete Data</td></tr>
+                    <tr><td><strong>Opt out of Firebase Analytics</strong></td><td>Android Settings → Google → Ads → Reset Advertising ID</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>For GDPR (EU/EEA) or other applicable data subject rights requests, contact us at the email address below. We will respond within 30 days.</p>
+    </div>
+
+    <!-- ── 11. Permissions ─────────────────────────────────────────── -->
+    <div class="section" id="permissions">
+        <div class="section-head">
+            <div class="section-icon icon-purple">🔑</div>
+            <div><h2>Permissions Summary</h2><div class="section-num">Section 11</div></div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Permission</th><th>Purpose</th><th>Optional?</th><th>Data Leaves Device?</th></tr></thead>
+                <tbody>
+                    <tr><td><code>READ_SMS</code></td><td>Auto-detect bank transaction SMS</td><td>Yes — full app works without it</td><td><span class="cross">✘ Never</span></td></tr>
+                    <tr><td><code>RECEIVE_SMS</code></td><td>Real-time SMS transaction detection</td><td>Yes — full app works without it</td><td><span class="cross">✘ Never</span></td></tr>
+                    <tr><td><code>CAMERA</code></td><td>Photograph receipts for OCR scanning</td><td>Yes — manual entry always available</td><td><span class="cross">✘ Never</span></td></tr>
+                    <tr><td><code>INTERNET</code></td><td>AI Coach (Groq), Drive backup, AdMob, Firebase</td><td>Core connectivity required</td><td><span class="tick">✔ Only to authorised services</span></td></tr>
+                    <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Check connectivity before API calls</td><td>—</td><td><span class="cross">✘ Never</span></td></tr>
+                    <tr><td><code>USE_BIOMETRIC</code></td><td>Optional fingerprint / face app lock</td><td>Yes — optional security</td><td><span class="cross">✘ Never</span></td></tr>
+                    <tr><td><code>POST_NOTIFICATIONS</code></td><td>Budget overspending alerts</td><td>Yes</td><td><span class="cross">✘ Never</span></td></tr>
+                    <tr><td><code>VIBRATE</code></td><td>Haptic feedback on notifications</td><td>—</td><td><span class="cross">✘ Never</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ── 12. Children ───────────────────────────────────────────── -->
+    <div class="section" id="children">
+        <div class="section-head">
+            <div class="section-icon icon-red">👶</div>
+            <div><h2>Children's Privacy</h2><div class="section-num">Section 12</div></div>
+        </div>
+        <p>This App is intended for users aged <strong>13 and above</strong> (or the applicable minimum age in your jurisdiction). The App is not directed at, and we do not knowingly collect personal information from, children under 13.</p>
+        <p>If you are a parent or guardian and believe your child under 13 has used this App and provided information, please contact us immediately at <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a> and we will take steps to address it.</p>
+    </div>
+
+    <!-- ── 13. International Transfers ───────────────────────────── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="section-icon icon-teal">🌐</div>
+            <div><h2>International Data Transfers</h2><div class="section-num">Section 13</div></div>
+        </div>
+        <p>LogicGridApps is based in India and does not operate servers that process your data. However, third-party services we use (Google, Meta/Facebook, Groq) may process data on servers outside India or the EU. These transfers occur in accordance with those providers' own data protection frameworks and applicable laws (e.g., Google's Standard Contractual Clauses for EU data).</p>
+    </div>
+
+    <!-- ── 14. Policy Changes ──────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="section-icon icon-slate">🔄</div>
+            <div><h2>Changes to This Policy</h2><div class="section-num">Section 14</div></div>
+        </div>
+        <p>We may update this Privacy Policy when we add new features, integrate new SDKs, or when applicable laws change. We will notify you of material changes by updating the "Last Updated" date at the top of this page and, where appropriate, via an in-app notification.</p>
+        <p>Continued use of the App after the effective date of an updated policy constitutes your acceptance of the changes.</p>
+    </div>
+
+    <!-- ── 15. Contact ────────────────────────────────────────────── -->
+    <div class="section" id="contact">
+        <div class="section-head">
+            <div class="section-icon icon-blue">✉️</div>
+            <div><h2>Contact Us</h2><div class="section-num">Section 15</div></div>
+        </div>
+        <p>For privacy-related questions, data deletion requests, permission concerns, or any other inquiries:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a></li>
+            <li><strong>Developer:</strong> Mukesh Thummar</li>
+            <li><strong>Company:</strong> LogicGridApps</li>
+            <li><strong>Location:</strong> Gujarat, India</li>
+        </ul>
+        <div class="callout callout-blue">
+            We aim to respond to all privacy-related inquiries within <strong>30 business days</strong>.
+        </div>
+    </div>
+
 </div>
+
+<footer class="footer">
+    <strong>Expense AI: UPI &amp; SMS Tracker</strong><br>
+    © 2026 LogicGridApps · Mukesh Thummar · Gujarat, India<br>
+    <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a>
+</footer>
 
 </body>
 </html>
