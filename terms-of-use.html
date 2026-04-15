@@ -3,111 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Use - Expense AI: UPI & SMS Tracker</title>
+    <title>Terms of Use — Expense AI: UPI & SMS Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy:   #0F1D3B;
+            --blue:   #1E3A8A;
+            --accent: #2563EB;
+            --sky:    #3B82F6;
+            --teal:   #0EA5E9;
+            --green:  #059669;
+            --red:    #DC2626;
+            --amber:  #D97706;
+            --ink:    #1E293B;
+            --body:   #334155;
+            --muted:  #64748B;
+            --border: #CBD5E1;
+            --surface:#F1F5F9;
+            --white:  #FFFFFF;
+            --card-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(30,58,138,.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #334155;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            background-color: #F8FAFC;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            color: var(--body);
+            background: #EEF2FF;
+            min-height: 100vh;
         }
-        .container {
-            background-color: #FFFFFF;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        .header {
+
+        .site-header {
+            background: linear-gradient(135deg, #0B1628 0%, #1E3A8A 55%, #1D4ED8 100%);
+            color: #fff;
+            padding: 56px 24px 48px;
             text-align: center;
-            border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
-        h1 { color: #1E3A8A; margin-bottom: 10px; font-size: 2.2rem; }
-        h2 { color: #2563EB; margin-top: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; }
-        h3 { color: #3B82F6; margin-top: 25px; }
-        p, li { font-size: 1.05rem; margin-bottom: 12px; }
-        ul { margin-bottom: 20px; }
-        .date { color: #64748B; font-weight: 500; }
-        a { color: #2563EB; text-decoration: none; }
+        .site-header::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(99,102,241,.2) 0%, transparent 55%),
+                        radial-gradient(ellipse at 80% 70%, rgba(14,165,233,.15) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .header-icon { font-size: 52px; display: block; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,.25)); }
+        .site-header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 400;
+            letter-spacing: -.5px;
+            margin-bottom: 6px;
+        }
+        .site-header .doc-type { font-size: .9rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: .75; margin-bottom: 20px; }
+        .badge-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+        .badge { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 20px; padding: 4px 14px; font-size: .78rem; font-weight: 500; backdrop-filter: blur(4px); }
+
+        .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; }
+
+        .toc-strip {
+            background: var(--white); border-radius: 14px; box-shadow: var(--card-shadow);
+            padding: 20px 24px; margin: -28px 0 32px; position: relative; z-index: 2;
+        }
+        .toc-strip p { font-size: .78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+        .toc-links { display: flex; flex-wrap: wrap; gap: 6px; }
+        .toc-links a { font-size: .82rem; color: var(--accent); text-decoration: none; background: var(--surface); border-radius: 6px; padding: 4px 10px; font-weight: 500; transition: background .15s, color .15s; }
+        .toc-links a:hover { background: var(--accent); color: #fff; }
+
+        .section { background: var(--white); border-radius: 16px; box-shadow: var(--card-shadow); padding: 32px; margin-bottom: 24px; scroll-margin-top: 24px; }
+        .section-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1.5px solid var(--surface); }
+        .section-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .icon-blue   { background: #DBEAFE; }
+        .icon-green  { background: #D1FAE5; }
+        .icon-red    { background: #FEE2E2; }
+        .icon-amber  { background: #FEF3C7; }
+        .icon-purple { background: #EDE9FE; }
+        .icon-teal   { background: #CFFAFE; }
+        .icon-slate  { background: #F1F5F9; }
+        .icon-indigo { background: #E0E7FF; }
+
+        h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--ink); letter-spacing: -.3px; }
+        h3 { color: var(--accent); margin: 18px 0 8px; font-size: 1rem; font-weight: 600; }
+        .section-num { font-size: .72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 1px; }
+
+        p { line-height: 1.75; margin-bottom: 14px; font-size: .97rem; }
+        p:last-child { margin-bottom: 0; }
+        ul, ol { padding-left: 20px; margin-bottom: 14px; }
+        li { line-height: 1.75; font-size: .97rem; margin-bottom: 4px; }
+        strong { font-weight: 600; color: var(--ink); }
+        code { font-family: 'SF Mono', 'Fira Code', monospace; background: var(--surface); border-radius: 4px; padding: 1px 6px; font-size: .85em; color: var(--accent); border: 1px solid var(--border); }
+        a { color: var(--accent); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
+        .callout { border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: .93rem; line-height: 1.65; }
+        .callout-blue   { background: #EFF6FF; border-left: 3px solid var(--accent); color: #1E40AF; }
+        .callout-green  { background: #ECFDF5; border-left: 3px solid var(--green);  color: #065F46; }
+        .callout-red    { background: #FFF1F2; border-left: 3px solid var(--red);    color: #9B1C1C; }
+        .callout-amber  { background: #FFFBEB; border-left: 3px solid var(--amber);  color: #92400E; }
+
+        .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 420px; }
+        thead tr { background: var(--surface); }
+        th { text-align: left; padding: 11px 14px; font-weight: 600; color: var(--ink); font-size: .82rem; text-transform: uppercase; letter-spacing: .5px; border-bottom: 1px solid var(--border); }
+        td { padding: 10px 14px; border-bottom: 1px solid var(--surface); vertical-align: top; line-height: 1.6; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #FAFBFF; }
+
+        .divider { height: 1px; background: var(--surface); margin: 20px 0; }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #EFF6FF, #F0FDF4);
+            border: 1px solid #BFDBFE;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+        .highlight-box h3 { margin-top: 0; color: var(--navy); }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .col-box { background: var(--surface); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+        .col-box h3 { color: var(--ink); margin-top: 0; font-size: .9rem; }
+
+        .footer { background: var(--navy); color: rgba(255,255,255,.65); text-align: center; padding: 28px 20px; font-size: .85rem; line-height: 1.8; }
+        .footer a { color: rgba(255,255,255,.85); }
+        .footer strong { color: #fff; }
+
         @media (max-width: 600px) {
-            .container { padding: 20px; }
-            h1 { font-size: 1.8rem; }
+            .section { padding: 20px 18px; }
+            .site-header { padding: 40px 20px 36px; }
+            .two-col { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>Expense AI: UPI & SMS Tracker</h1>
-        <h2>Terms of Use</h2>
-        <p class="date"><strong>Last Updated:</strong> March 28, 2026</p>
+<!-- ── Header ─────────────────────────────────────────────────── -->
+<header class="site-header">
+    <span class="header-icon">📜</span>
+    <h1>Expense AI: UPI &amp; SMS Tracker</h1>
+    <div class="doc-type">Terms of Use</div>
+    <div class="badge-row">
+        <span class="badge">📅 Last Updated: April 11, 2026</span>
+        <span class="badge">⚖️ Governed by Indian Law</span>
+        <span class="badge">✅ Google Play Developer Policy Compliant</span>
+        <span class="badge">📱 AdMob Policy Compliant</span>
+    </div>
+</header>
+
+<div class="page-wrap">
+
+    <!-- ── TOC ──────────────────────────────────────────────────── -->
+    <div class="toc-strip">
+        <p>Quick Navigation</p>
+        <div class="toc-links">
+            <a href="#acceptance">Acceptance</a>
+            <a href="#license">License</a>
+            <a href="#permitted">Permitted Use</a>
+            <a href="#prohibited">Prohibited Use</a>
+            <a href="#ads-terms">Advertising</a>
+            <a href="#sms-terms">SMS Tracking</a>
+            <a href="#ai-terms">AI &amp; Credits</a>
+            <a href="#financial">Financial Disclaimer</a>
+            <a href="#ip">Intellectual Property</a>
+            <a href="#thirdparty-terms">Third-Party Services</a>
+            <a href="#termination">Termination</a>
+            <a href="#liability">Limitation of Liability</a>
+            <a href="#governing">Governing Law</a>
+            <a href="#changes-terms">Changes</a>
+            <a href="#contact-terms">Contact</a>
+        </div>
     </div>
 
-    <h3>1. Acceptance of Terms</h3>
-    <p>By downloading, installing, or using Expense AI: UPI & SMS Tracker ("the App"), you agree to be bound by these Terms of Use. If you do not agree, please do not use the App.</p>
+    <!-- ── 1. Acceptance ─────────────────────────────────────────── -->
+    <div class="section" id="acceptance">
+        <div class="section-head">
+            <div class="section-icon icon-blue">✅</div>
+            <div><h2>Acceptance of Terms</h2><div class="section-num">Section 01</div></div>
+        </div>
+        <p>These Terms of Use ("Terms") constitute a legally binding agreement between you ("User") and <strong>LogicGridApps</strong>, operated by <strong>Mukesh Thummar</strong>, Gujarat, India ("we," "us," "our"), governing your use of <strong>Expense AI: UPI &amp; SMS Tracker</strong> (the "App").</p>
+        <div class="callout callout-blue">
+            <strong>By downloading, installing, or using the App, you confirm that you:</strong><br>
+            (a) have read and understood these Terms;<br>
+            (b) are at least 13 years old (or of legal age in your jurisdiction);<br>
+            (c) agree to be bound by these Terms and our Privacy Policy.<br><br>
+            If you do not agree to these Terms, you must immediately uninstall the App and cease using it.
+        </div>
+        <p>These Terms apply to all versions of the App, including all updates, upgrades, and new features released under the same App listing on the Google Play Store.</p>
+    </div>
 
-    <h3>2. License</h3>
-    <p>LogicGridApps grants you a personal, non-exclusive, non-transferable, revocable license to use the App on Android devices you own or control, solely for personal financial tracking purposes.</p>
+    <!-- ── 2. License ─────────────────────────────────────────────── -->
+    <div class="section" id="license">
+        <div class="section-head">
+            <div class="section-icon icon-green">📱</div>
+            <div><h2>License Grant</h2><div class="section-num">Section 02</div></div>
+        </div>
+        <p>Subject to your compliance with these Terms, LogicGridApps grants you a <strong>limited, personal, non-exclusive, non-transferable, revocable license</strong> to:</p>
+        <ul>
+            <li>Download, install, and use the App on Android devices that you own or control</li>
+            <li>Use the App solely for your own personal, non-commercial financial tracking purposes</li>
+        </ul>
+        <p>This license does not include any right to sublicense, sell, resell, transfer, assign, or otherwise make the App available to any third party.</p>
+        <p>We reserve all rights in and to the App not expressly granted in these Terms.</p>
+    </div>
 
-    <h3>3. Permitted Use</h3>
-    <p>You may use the App to:</p>
-    <ul>
-        <li>Track personal income and expenses</li>
-        <li>Set monthly budgets</li>
-        <li>View spending reports and charts</li>
-        <li>Receive AI-powered financial insights</li>
-    </ul>
+    <!-- ── 3. Permitted Use ───────────────────────────────────────── -->
+    <div class="section" id="permitted">
+        <div class="section-head">
+            <div class="section-icon icon-teal">🟢</div>
+            <div><h2>Permitted Use</h2><div class="section-num">Section 03</div></div>
+        </div>
+        <p>You are authorized to use the App for the following purposes:</p>
+        <div class="two-col">
+            <div class="col-box">
+                <h3>Core Features</h3>
+                <ul>
+                    <li>Track personal income and expenses</li>
+                    <li>Set and monitor monthly budgets</li>
+                    <li>View spending reports and charts</li>
+                    <li>Manage a personal financial passbook</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>Optional Features</h3>
+                <ul>
+                    <li>Auto-detect bank transactions via SMS</li>
+                    <li>Scan receipts using the camera</li>
+                    <li>Use the AI financial coaching chat</li>
+                    <li>Backup data to your Google Drive</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <h3>4. Prohibited Use</h3>
-    <p>You agree <strong>not</strong> to:</p>
-    <ul>
-        <li>Reverse engineer, decompile, or disassemble the App</li>
-        <li>Use the App for commercial purposes without written consent</li>
-        <li>Attempt to extract, reproduce, or misuse any proprietary algorithms</li>
-        <li>Use the App in violation of any applicable law</li>
-    </ul>
+    <!-- ── 4. Prohibited Use ──────────────────────────────────────── -->
+    <div class="section" id="prohibited">
+        <div class="section-head">
+            <div class="section-icon icon-red">🚫</div>
+            <div><h2>Prohibited Use</h2><div class="section-num">Section 04</div></div>
+        </div>
+        <div class="callout callout-red">
+            Violation of any prohibition below may result in immediate termination of your license and, where applicable, legal action.
+        </div>
+        <p>You agree <strong>not</strong> to:</p>
+        <ul>
+            <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App</li>
+            <li>Use the App for any commercial, business, or revenue-generating purpose without prior written consent from LogicGridApps</li>
+            <li>Copy, modify, adapt, translate, or create derivative works based on the App</li>
+            <li>Remove, alter, or obscure any proprietary notices, branding, or labels in the App</li>
+            <li>Use automated scripts, bots, scrapers, or crawlers to extract data from the App</li>
+            <li>Attempt to bypass, disable, or interfere with any security or access control features</li>
+            <li>Use the App in violation of any applicable local, state, national, or international law or regulation</li>
+            <li>Circumvent or interfere with the advertising system, including using ad blockers within the App, artificially clicking ads, or attempting to generate fraudulent ad impressions</li>
+            <li>Share your Google Drive backup file, export CSV, or any App-generated data with third parties for commercial exploitation</li>
+            <li>Impersonate LogicGridApps or any representative in communications or reviews</li>
+        </ul>
+    </div>
 
-    <h3>5. Financial Disclaimer</h3>
-    <p><strong>The App is a personal budgeting tool, not a financial advisor.</strong> All AI-generated tips, summaries, and insights are for informational purposes only and do not constitute financial, investment, legal, or tax advice. Always consult a qualified financial advisor for significant financial decisions.</p>
-    <p>The App's SMS parsing may not capture all transactions. Verify important financial data against your official bank statements.</p>
+    <!-- ── 5. Advertising Terms ───────────────────────────────────── -->
+    <div class="section" id="ads-terms">
+        <div class="section-head">
+            <div class="section-icon icon-amber">📢</div>
+            <div><h2>Advertising</h2><div class="section-num">Section 05</div></div>
+        </div>
+        <p>The App is provided free of charge and is supported by advertising through <strong>Google AdMob</strong>. By using the App, you agree to the display of advertisements as described below.</p>
 
-    <h3>6. Accuracy of Data</h3>
-    <p>The App uses SMS parsing and OCR technology, which may occasionally misread amounts or merchant names. LogicGridApps is not responsible for any financial decisions made based on data presented in the App.</p>
+        <h3>Ad Formats</h3>
+        <ul>
+            <li><strong>Interstitial ads:</strong> Full-screen ads displayed at natural app transition points (e.g., after saving a transaction, switching view modes). Frequency is controlled by Firebase Remote Config to limit interruption.</li>
+            <li><strong>Rewarded video ads:</strong> Optional ads you may choose to watch in exchange for AI credits or to unlock Export/Import features. These are never compulsory.</li>
+        </ul>
 
-    <h3>7. Third-Party Services</h3>
-    <p>The App connects to Google services (Gemini AI, Google Drive, ML Kit). Your use of these services is also governed by Google's Terms of Service and Privacy Policy. LogicGridApps is not responsible for the availability or terms of third-party services.</p>
+        <h3>Your Obligations Regarding Ads</h3>
+        <ul>
+            <li>You agree not to use any ad-blocking software, extensions, or tools that prevent ads from being shown within the App</li>
+            <li>You agree not to click on ads fraudulently, repeatedly, or in an automated manner</li>
+            <li>You agree not to attempt to manipulate or interfere with the ad-serving infrastructure</li>
+        </ul>
 
-    <h3>8. Intellectual Property</h3>
-    <p>All code, design, and original content in the App is the property of LogicGridApps. The Expense AI: UPI & SMS Tracker name and logo are proprietary. The App incorporates open-source libraries; their respective licenses apply.</p>
+        <h3>AdMob Terms</h3>
+        <p>Advertising served through Google AdMob is subject to Google's <a href="https://policies.google.com/technologies/ads" target="_blank">Advertising Policies</a> and <a href="https://support.google.com/admob/answer/48182" target="_blank">AdMob Publisher Policies</a>. Google may use cookies, advertising identifiers, and other technologies to serve relevant ads.</p>
 
-    <h3>9. Limitation of Liability</h3>
-    <p>To the maximum extent permitted by applicable law, LogicGridApps shall not be liable for:</p>
-    <ul>
-        <li>Any indirect, incidental, or consequential damages</li>
-        <li>Loss of data, profits, or business</li>
-        <li>Any damages arising from third-party service failures (Google Drive outages, Gemini API unavailability, etc.)</li>
-        <li>Inaccurate transaction parsing from SMS or OCR</li>
-    </ul>
+        <h3>Ad Content</h3>
+        <p>LogicGridApps does not control the specific content of advertisements served by AdMob or its advertising partners. If you encounter an advertisement you believe violates Google's policies, you may report it using the "Why this ad?" or "Report this ad" option provided by AdMob.</p>
 
-    <h3>10. Indemnification</h3>
-    <p>You agree to indemnify and hold LogicGridApps harmless from any claims, losses, or damages (including legal fees) arising from your misuse of the App or violation of these Terms.</p>
+        <h3>Opting Out</h3>
+        <p>You can opt out of personalized advertising at any time via Android device settings: <strong>Settings → Google → Ads → Opt out of Ads Personalization</strong>. Non-personalized ads may still be shown.</p>
+    </div>
 
-    <h3>11. Governing Law</h3>
-    <p>These Terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Gujarat, India.</p>
+    <!-- ── 6. SMS Tracking Terms ──────────────────────────────────── -->
+    <div class="section" id="sms-terms">
+        <div class="section-head">
+            <div class="section-icon icon-amber">💬</div>
+            <div><h2>SMS Tracking Feature</h2><div class="section-num">Section 06</div></div>
+        </div>
+        <p>The SMS auto-tracking feature requires <code>READ_SMS</code> and <code>RECEIVE_SMS</code> permissions. Before these permissions are requested, a <strong>Prominent Disclosure Dialog</strong> will be shown explaining exactly how the permissions are used, in compliance with Google Play's Sensitive Permissions policy.</p>
+        <div class="callout callout-amber">
+            <strong>By granting SMS permissions, you confirm that:</strong><br>
+            (a) you understand the App will read SMS messages to detect bank transaction alerts;<br>
+            (b) you consent to on-device parsing of your bank SMS messages for this purpose;<br>
+            (c) you acknowledge that you can revoke this permission at any time without losing manually entered data.
+        </div>
+        <p>The App processes SMS data only to extract transaction amounts, dates, and merchant names from bank messages. This processing occurs entirely on your device. No SMS content is transmitted to any external server.</p>
+    </div>
 
-    <h3>12. Changes to Terms</h3>
-    <p>We may update these Terms at any time. Continued use of the App after changes constitutes acceptance. Check the "Last Updated" date at the top.</p>
+    <!-- ── 7. AI Credits & Rewarded Ads ───────────────────────────── -->
+    <div class="section" id="ai-terms">
+        <div class="section-head">
+            <div class="section-icon icon-purple">🤖</div>
+            <div><h2>AI Coach &amp; Credit System</h2><div class="section-num">Section 07</div></div>
+        </div>
+        <p>The AI Financial Coach feature operates on a credit system. Credits are used to send messages to the AI coach.</p>
+        <ul>
+            <li>New users receive a set number of free credits upon first launch (configured via Firebase Remote Config)</li>
+            <li>Additional credits can be earned by voluntarily watching rewarded video ads</li>
+            <li>AI credits have no monetary value, cannot be transferred, sold, refunded, or exchanged</li>
+            <li>AI credit balances may be reset if you clear App data, reinstall the App, or if LogicGridApps resets the system via Remote Config</li>
+        </ul>
+        <h3>AI Response Disclaimer</h3>
+        <p>AI Coach responses are generated by the Groq AI API and are for <strong>informational and entertainment purposes only</strong>. They do not constitute financial, investment, tax, or legal advice. See Section 8 for the full financial disclaimer.</p>
+        <h3>Export/Import Rewarded Ads</h3>
+        <p>Export and Import features may require watching a rewarded video ad as a condition of access. This is clearly indicated in the App before the ad is requested. Watching is always opt-in; you may close the dialog and forgo the feature.</p>
+    </div>
 
-    <h3>13. Contact</h3>
-    <p><strong>Email:</strong> <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a><br>
-    <strong>Developer:</strong> Mukesh Thummar, Gujarat, India</p>
+    <!-- ── 8. Financial Disclaimer ────────────────────────────────── -->
+    <div class="section" id="financial">
+        <div class="section-head">
+            <div class="section-icon icon-red">⚠️</div>
+            <div><h2>Financial Disclaimer</h2><div class="section-num">Section 08</div></div>
+        </div>
+        <div class="callout callout-red">
+            <strong>IMPORTANT:</strong> Expense AI: UPI &amp; SMS Tracker is a personal budgeting and expense management tool. It is <strong>NOT a licensed financial advisor, investment advisor, bank, or financial institution.</strong>
+        </div>
+        <p>All content within the App, including AI Coach responses, savings tips, spending analyses, budget recommendations, and financial summaries:</p>
+        <ul>
+            <li>Is provided for <strong>informational purposes only</strong></li>
+            <li>Does <strong>not</strong> constitute financial, investment, tax, legal, or professional advice</li>
+            <li>Should <strong>not</strong> be relied upon as the sole basis for any financial decision</li>
+            <li>May not be accurate, complete, or current</li>
+        </ul>
+        <p><strong>Always consult a qualified financial advisor or chartered accountant before making significant financial decisions.</strong></p>
+
+        <h3>Accuracy Limitations</h3>
+        <ul>
+            <li>SMS parsing and OCR technology may misread amounts, merchant names, or dates</li>
+            <li>Transaction categorization by the ML model may be incorrect</li>
+            <li>Always verify critical financial data against your official bank statements</li>
+            <li>LogicGridApps is not responsible for financial decisions made based on data presented in the App</li>
+        </ul>
+
+        <h3>No Affiliation with Banks</h3>
+        <p>The App is not affiliated with, endorsed by, or connected to any bank, financial institution, UPI provider, or government body mentioned or referenced within the App (including HDFC Bank, SBI, ICICI Bank, Axis Bank, Kotak Mahindra Bank, Bank of Baroda, or any other institution).</p>
+    </div>
+
+    <!-- ── 9. Intellectual Property ───────────────────────────────── -->
+    <div class="section" id="ip">
+        <div class="section-head">
+            <div class="section-icon icon-indigo">©️</div>
+            <div><h2>Intellectual Property</h2><div class="section-num">Section 09</div></div>
+        </div>
+        <p>All intellectual property rights in the App — including but not limited to source code, design, UI/UX, algorithms, machine learning models, branding, the name "Expense AI: UPI &amp; SMS Tracker," and associated logos — are the exclusive property of LogicGridApps / Mukesh Thummar.</p>
+        <p>These Terms do not transfer any intellectual property rights to you. Your use of the App does not grant you any rights to the App's intellectual property beyond the limited license in Section 2.</p>
+
+        <h3>Open-Source Components</h3>
+        <p>The App incorporates open-source libraries and components (including but not limited to Jetpack Compose, Android Room, Hilt, TensorFlow Lite/LiteRT, OkHttp, and Coil). These components remain subject to their respective open-source licenses, which are separate from and do not modify these Terms.</p>
+
+        <h3>User-Generated Data</h3>
+        <p>Transaction data, budgets, and notes you enter are yours. We make no claim of ownership over data you create. You grant LogicGridApps no license to your personal financial data.</p>
+    </div>
+
+    <!-- ── 10. Third-Party Services ───────────────────────────────── -->
+    <div class="section" id="thirdparty-terms">
+        <div class="section-head">
+            <div class="section-icon icon-slate">🔗</div>
+            <div><h2>Third-Party Services</h2><div class="section-num">Section 10</div></div>
+        </div>
+        <p>The App integrates third-party services. Your use of these services through the App is also subject to their respective terms and policies:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Service</th><th>Provider</th><th>Applicable Terms</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google AdMob</strong></td>
+                        <td>Google LLC</td>
+                        <td><a href="https://policies.google.com/terms" target="_blank">Google ToS</a> · <a href="https://support.google.com/admob/answer/48182" target="_blank">AdMob Policies</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase (Analytics, Remote Config)</strong></td>
+                        <td>Google LLC</td>
+                        <td><a href="https://firebase.google.com/terms" target="_blank">Firebase ToS</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook / Meta SDK</strong></td>
+                        <td>Meta Platforms, Inc.</td>
+                        <td><a href="https://www.facebook.com/legal/terms" target="_blank">Meta ToS</a> · <a href="https://developers.facebook.com/terms" target="_blank">Developer ToS</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Groq AI API</strong></td>
+                        <td>Groq, Inc.</td>
+                        <td><a href="https://groq.com/terms-of-use/" target="_blank">Groq ToU</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Drive API</strong></td>
+                        <td>Google LLC</td>
+                        <td><a href="https://policies.google.com/terms" target="_blank">Google ToS</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google ML Kit &amp; TFLite/LiteRT</strong></td>
+                        <td>Google LLC</td>
+                        <td><a href="https://policies.google.com/terms" target="_blank">Google ToS</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Play In-App Review</strong></td>
+                        <td>Google LLC</td>
+                        <td><a href="https://policies.google.com/terms" target="_blank">Google ToS</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>LogicGridApps is not responsible for the availability, accuracy, content, practices, or policies of any third-party service. Outages or changes to third-party services (e.g., Groq API unavailability, Google Drive changes) are beyond our control.</p>
+    </div>
+
+    <!-- ── 11. Termination ────────────────────────────────────────── -->
+    <div class="section" id="termination">
+        <div class="section-head">
+            <div class="section-icon icon-red">🔚</div>
+            <div><h2>Termination</h2><div class="section-num">Section 11</div></div>
+        </div>
+        <p>These Terms are effective until terminated.</p>
+        <h3>Termination by You</h3>
+        <p>You may terminate these Terms at any time by uninstalling the App from all your devices. Uninstalling the App will delete all locally stored data.</p>
+        <h3>Termination by Us</h3>
+        <p>We may terminate or suspend your license immediately, without prior notice, if:</p>
+        <ul>
+            <li>You violate any provision of these Terms</li>
+            <li>We are required to do so by law or Google Play policy</li>
+            <li>We decide to discontinue the App</li>
+        </ul>
+        <p>Upon termination, the license granted in Section 2 automatically revokes. Sections 8, 9, 12, 13, and 14 survive termination.</p>
+    </div>
+
+    <!-- ── 12. Limitation of Liability ───────────────────────────── -->
+    <div class="section" id="liability">
+        <div class="section-head">
+            <div class="section-icon icon-amber">⚖️</div>
+            <div><h2>Disclaimer of Warranties &amp; Limitation of Liability</h2><div class="section-num">Section 12</div></div>
+        </div>
+        <h3>Disclaimer of Warranties</h3>
+        <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LOGICGRIDAPPS EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, AND NON-INFRINGEMENT.</p>
+        <p>We do not warrant that:</p>
+        <ul>
+            <li>The App will be available, uninterrupted, or error-free</li>
+            <li>SMS or OCR parsing will be 100% accurate</li>
+            <li>AI Coach responses will be accurate, complete, or suitable for your financial situation</li>
+            <li>The App will be free of viruses or other harmful components</li>
+            <li>Third-party services (AdMob, Firebase, Groq, Google Drive) will be continuously available</li>
+        </ul>
+
+        <h3>Limitation of Liability</h3>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LOGICGRIDAPPS AND ITS OPERATORS SHALL NOT BE LIABLE FOR:</p>
+        <ul>
+            <li>Any indirect, incidental, special, consequential, exemplary, or punitive damages</li>
+            <li>Loss of profits, data, goodwill, or business opportunities</li>
+            <li>Financial losses arising from inaccurate SMS parsing, OCR errors, or AI Coach recommendations</li>
+            <li>Damages arising from third-party service failures, outages, or policy changes</li>
+            <li>Unauthorized access to your device, App data, or Google Drive backup</li>
+            <li>Any damages exceeding INR 500 (five hundred rupees), to the extent permitted by law</li>
+        </ul>
+        <p>Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability, so the above limitations may not fully apply to you.</p>
+    </div>
+
+    <!-- ── 13. Indemnification ─────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="section-icon icon-slate">🛡️</div>
+            <div><h2>Indemnification</h2><div class="section-num">Section 13</div></div>
+        </div>
+        <p>You agree to indemnify, defend, and hold harmless LogicGridApps, Mukesh Thummar, and their respective affiliates, from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
+        <ul>
+            <li>Your use or misuse of the App</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any applicable law or third-party rights</li>
+            <li>Any content or data you submit, post, or otherwise make available through the App</li>
+        </ul>
+    </div>
+
+    <!-- ── 14. Governing Law ───────────────────────────────────────── -->
+    <div class="section" id="governing">
+        <div class="section-head">
+            <div class="section-icon icon-blue">🏛️</div>
+            <div><h2>Governing Law &amp; Dispute Resolution</h2><div class="section-num">Section 14</div></div>
+        </div>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>Republic of India</strong>, without regard to its conflict of law provisions.</p>
+        <p>Any dispute, claim, or controversy arising out of or relating to these Terms or the use of the App shall be subject to the exclusive jurisdiction of the competent courts located in <strong>Gujarat, India</strong>.</p>
+        <p>Before initiating formal legal proceedings, you agree to first contact us at <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a> and attempt to resolve the dispute informally within 30 days.</p>
+    </div>
+
+    <!-- ── 15. Google Play Developer Policies ─────────────────────── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="section-icon icon-green">▶️</div>
+            <div><h2>Google Play Compliance</h2><div class="section-num">Section 15</div></div>
+        </div>
+        <p>This App is distributed via the Google Play Store and complies with <a href="https://play.google.com/about/developer-content-policy/" target="_blank">Google Play Developer Program Policies</a>, including:</p>
+        <ul>
+            <li><strong>Sensitive Permissions Policy:</strong> A Prominent Disclosure Dialog is shown before requesting <code>READ_SMS</code> / <code>RECEIVE_SMS</code>, explaining the sole purpose of the permission</li>
+            <li><strong>Personal &amp; Sensitive Data Policy:</strong> SMS data is processed on-device only and never transmitted externally</li>
+            <li><strong>Ads Policy:</strong> Advertising is implemented using Google AdMob in compliance with Google's advertising policies; rewarded ads are always opt-in</li>
+            <li><strong>Families Policy:</strong> The App is not directed at children under 13</li>
+            <li><strong>User Data Policy:</strong> Users can delete all their data from within the App at any time</li>
+        </ul>
+        <div class="callout callout-green">
+            The App also complies with the <strong>Google Play Data Safety</strong> requirements. The Data Safety form submitted to Google Play accurately reflects the data collection and sharing practices described in this Privacy Policy.
+        </div>
+    </div>
+
+    <!-- ── 16. Changes to Terms ───────────────────────────────────── -->
+    <div class="section" id="changes-terms">
+        <div class="section-head">
+            <div class="section-icon icon-teal">🔄</div>
+            <div><h2>Changes to These Terms</h2><div class="section-num">Section 16</div></div>
+        </div>
+        <p>We may revise these Terms at any time. When we make material changes, we will update the "Last Updated" date at the top of this page. For significant changes, we may provide an in-app notification.</p>
+        <p><strong>Your continued use of the App after the revised Terms become effective constitutes your acceptance of the changes.</strong> If you do not agree to the revised Terms, you must stop using the App and uninstall it.</p>
+    </div>
+
+    <!-- ── 17. Contact ────────────────────────────────────────────── -->
+    <div class="section" id="contact-terms">
+        <div class="section-head">
+            <div class="section-icon icon-blue">✉️</div>
+            <div><h2>Contact</h2><div class="section-num">Section 17</div></div>
+        </div>
+        <p>For questions about these Terms, to report a policy concern, or to seek legal clarification:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a></li>
+            <li><strong>Developer:</strong> Mukesh Thummar</li>
+            <li><strong>Company:</strong> LogicGridApps</li>
+            <li><strong>Location:</strong> Gujarat, India</li>
+        </ul>
+        <div class="callout callout-blue">
+            By using the App, you acknowledge that you have read these Terms of Use and the Privacy Policy, and agree to be bound by both documents.
+        </div>
+    </div>
+
 </div>
+
+<footer class="footer">
+    <strong>Expense AI: UPI &amp; SMS Tracker</strong><br>
+    © 2026 LogicGridApps · Mukesh Thummar · Gujarat, India<br>
+    <a href="mailto:logicgridapps@gmail.com">logicgridapps@gmail.com</a>
+</footer>
 
 </body>
 </html>
